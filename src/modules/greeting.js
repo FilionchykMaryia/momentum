@@ -1,40 +1,37 @@
-const showGreeting = () => {
-  const greeting = document.querySelector('.greeting');
-  const inpName = document.querySelector('.name');
+const greeting = document.querySelector('.greeting');
+const inpName = document.querySelector('.name');
 
-  const getHours = () => {
-    const date = new Date();
-    const hours = date.getHours();
-    return hours;
+const getHours = () => {
+  const date = new Date();
+  const hours = date.getHours();
+  return hours;
+}
+export const getTimeOfDay = () => {
+  let hours = getHours();
+  if (hours>= 6 && hours<=11) {
+    return 'morning'
+  } else if (hours>=12 && hours<=17){
+    return 'day'
+  } else if (hours>=18 && hours<=23){
+    return 'evening'
+  } else if (hours>=0 && hours<=5){
+    return 'night'
   }
-  const getTimeOfDay = () => {
-    let hours = getHours();
-    if (hours>= 4 && hours<=11) {
-      return 'Morning'
-    } else if (hours>=12 && hours<=16){
-      return 'Day'
-    } else if (hours>=17 && hours<=23){
-      return 'Evening'
-    } else if (hours>=0 && hours<=3){
-      return 'Night'
-    }
-  }
+}
+
+export const showGreeting = () => {
   const timeOfDay = getTimeOfDay();
   const greetingText = `Good ${timeOfDay}, `;
   greeting.textContent = greetingText;
-
-  function setLocalStorage() {
-    localStorage.setItem('name', inpName.value);
-  }
-  window.addEventListener('beforeunload', setLocalStorage);
-
-  function getLocalStorage() {
-    if(localStorage.getItem('name')) {
-      inpName.value = localStorage.getItem('name');
-    }
-  }
-  window.addEventListener('load', getLocalStorage);
-
 }
 
-export default showGreeting;
+const setLocalStorage = () => {
+  localStorage.setItem('name', inpName.value);
+}
+
+const getLocalStorage = () => {
+  if(localStorage.getItem('name')) inpName.value = localStorage.getItem('name');
+}
+
+window.addEventListener('beforeunload', setLocalStorage);
+window.addEventListener('load', getLocalStorage);

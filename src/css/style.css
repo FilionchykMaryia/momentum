@@ -16,7 +16,7 @@ body {
   font-size: 16px;
   color: #fff;
   text-align: center;
-  background: url("../assets/img/bg.jpg") center/cover, rgba(0, 0, 0, 0.5);
+  background: center/cover, rgba(0, 0, 0, 0.5);
   background-blend-mode: multiply;
   transition: background-image 1s ease-in-out;
 }
@@ -258,10 +258,12 @@ body {
 
 .quote {
   min-height: 32px;
+  font-style: italic;
 }
 
 .author {
   min-height: 20px;
+  font-style: italic;
 }
 
 @media (max-width: 768px) {
