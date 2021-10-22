@@ -26,7 +26,6 @@ async function getWeather(){
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&${lang}&appid=${key}&${units}`;
   const res = await fetch(url);
   const data = await res.json();
-  console.log(data.weather[0].id, data.weather[0].description, data.main.temp, data.main.humidity, data.wind.speed);
 
   weatherIcon.className = 'weather-icon owf';
   weatherIcon.classList.add(`owf-${data.weather[0].id}`);
