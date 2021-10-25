@@ -1,20 +1,27 @@
 import { showGreeting } from './greeting';
+import { checkLang, toggleLang } from './language';
+
+let lang = checkLang();
+let locale;
 
 const time = document.querySelector('.time');
 const date = document.querySelector('.date');
-
-const showTime = () => {
+ 
+const showTime = (lang) => {
+  lang = checkLang();
+  if(lang==='en'){locale = 'en-GB'};
+  if(lang==='ru'){locale = 'ru-RU'};
   const newDate = new Date();
   const currentTime = newDate.toLocaleTimeString();
   time.textContent = currentTime;
-  showDate();
-  showGreeting();
+  showDate(locale);
+  showGreeting(lang);
   setTimeout(showTime, 1000);
 }
-const showDate = () => {
+export const showDate = (locale = 'en-GB') => {
   const newDate = new Date();
   const options = {weekday: 'long', month: 'long', day: 'numeric', timeZone: 'UTC'};
-  const currentDate = newDate.toLocaleDateString('en-GB', options);
-  date.textContent = currentDate;
+  const currentDate = newDate.toLocaleDateString(`${locale}`, options);
+  date.textContent = currentDate; 
 }
-showTime();
+showTime(lang);

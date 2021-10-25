@@ -20,6 +20,9 @@ body {
   background-blend-mode: multiply;
   transition: background-image 1s ease-in-out;
 }
+li {
+  list-style: none;
+}
 /* color: #F59D14; */
 .header {
   display: flex;
@@ -182,14 +185,10 @@ body {
   background-image: url('../assets/img/volume.png');
 }
 .volume-slider {
-  /* position: absolute; */
-  /* left: -3px; top: 15px; */
-  /* z-index: -1; */
   width: 45%;
   height: 4px;
   background: white;
   box-shadow: 0 0 20px #000a;
-  /* transition: .25s; */
 }
 .volume-percentage {
   background: #F59D14;
@@ -209,7 +208,12 @@ body {
 }
 
 .weather-error {
+  opacity: 0;
   margin-top: -10px;
+  padding: 1em;
+  color: #F53B14;
+  background-color: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 2px 10px 0 #000;
 }
 
 .description-container {
@@ -241,6 +245,72 @@ body {
   font-size: 20px;
   color: #fff;
   opacity: .6;
+}
+
+/* .settings {
+  
+} */
+.settings-btn {
+  height: 26px;
+  width: 26px;
+  border: none;
+  background-image: url("../assets/img/setting.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 5px;
+}
+
+.list {
+  flex: 0 0 20rem;
+  display: flex;
+  gap: 1em;
+  background-color: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 2px 10px 0 #000;
+}
+
+.list__item {
+  position: relative;
+}
+
+.list__item:hover > .label {
+  color: #F59D14;
+}
+.list__item:hover > .label::before {
+  border: 0.3rem solid #F59D14;
+}
+
+.radio-btn {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+}
+.radio-btn:checked + .label {
+  color: #F59D14; 
+}
+.radio-btn:checked + .label::before {
+  border: 0.3rem solid #F59D14;
+  background: #fff;
+}
+.label {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 0;
+  color: #fff;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s linear;
+}
+
+.label::before {
+  display: inline-block;
+  content: "";
+  height: 1em;
+  width: 1em;
+  margin-right: 0.3rem;
+  border: 0.3rem solid #fff;
+  border-radius: 50%;
+  transition: all 0.25s linear;
 }
 
 .main {
@@ -344,6 +414,7 @@ body {
   min-height: 20px;
   font-style: italic;
 }
+
 
 @media (max-width: 768px) {
   .time {

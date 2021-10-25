@@ -11,7 +11,7 @@ export const getRandomNum = (min, max) => {
 
 let randomNum = getRandomNum(1, 20);
 
-const setBg = () => {
+export const setBg = () => {
   const img = new Image();
   const timeOfDay = getTimeOfDay();
   const bgNum = randomNum.toString().padStart(2, '0');
@@ -21,7 +21,7 @@ const setBg = () => {
     document.body.style.backgroundImage = `url(${img.src})`;
   }
 }
-setBg();
+// setBg();
 const getSlideNext = () => {
   if(randomNum < 20) {
     randomNum++;
@@ -40,3 +40,4 @@ const getSlidePrev = () => {
 }
 slideNext.addEventListener('click', getSlideNext);
 slidePrev.addEventListener('click', getSlidePrev);
+// document.addEventListener('load', setBg)
