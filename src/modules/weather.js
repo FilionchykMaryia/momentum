@@ -38,6 +38,7 @@ export async function getWeather(lang = 'en'){
     weatherIcon.classList.add(`owf-${data.weather[0].id}`);
     temperature.textContent = `${Math.round(data.main.temp)}°C`;
     weatherDescription.textContent = data.weather[0].description;
+    weatherError.style.display = 'none';
     if(lang === 'en') {
       wind.textContent = `Wind speed: ${Math.round(data.wind.speed)} m/s`;
       humidity.textContent = `Humidity: ${data.main.humidity} %`;
@@ -51,7 +52,7 @@ export async function getWeather(lang = 'en'){
   } catch(err){
     if(err instanceof TypeError){
       weatherError.textContent = data.message;
-      weatherError.style.opacity = '1';
+      weatherError.style.display = 'block';
       temperature.textContent = '';
       weatherDescription.textContent = '';
       wind.textContent = '';

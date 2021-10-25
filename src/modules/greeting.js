@@ -1,5 +1,5 @@
 import { checkLang } from './language';
-import { setBg } from './slider-bg';
+import { setBg, getLinkToImage } from './slider-bg';
 
 const lang = checkLang();
 
@@ -23,7 +23,7 @@ export const getTimeOfDay = () => {
       return 'night'
     }
 }
-setBg();
+getLinkToImage();
 
 const getGreeting = (lang = 'en') => {
   const timeOfDay = getTimeOfDay();

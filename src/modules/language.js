@@ -4,6 +4,16 @@ import { getQuotes } from './quotes.js';
 
 const langBtnEn = document.querySelector('.en');
 const langBtnRu = document.querySelector('.ru');
+const titleLang = document.querySelector('.title-lang');
+const titleImg = document.querySelector('.title-img');
+const titleBlocks = document.querySelector('.title-blocks');
+
+let lableTime = document.querySelector('.time-label');
+let lableDate = document.querySelector('.date-label');
+let lableGreeting = document.querySelector('.greeting-label');
+let lableQuote = document.querySelector('.quote-label');
+let lableWeather = document.querySelector('.weather-label');
+let lableAudio = document.querySelector('.audio-label');
 
 let lang;
 export const getLangLocalStorage = () => {
@@ -18,8 +28,30 @@ const setLangLocalStorage = () => {
 lang = getLangLocalStorage();
 
 export const checkLang = () => {
-  if(langBtnEn.checked) lang = langBtnEn.value;
-  if(langBtnRu.checked) lang = langBtnRu.value;
+  if(langBtnEn.checked) {
+    lang = langBtnEn.value;
+    titleLang.textContent = 'Language';
+    titleImg.textContent = 'Image Source';
+    titleBlocks.textContent = 'Visibility / hidden block';
+    lableTime.textContent = 'Time';
+    lableDate.textContent = 'Date';
+    lableGreeting.textContent = 'Greeting';
+    lableQuote.textContent = 'Quote';
+    lableWeather.textContent = 'Weather';
+    lableAudio.textContent = 'Audio';
+  }
+  if(langBtnRu.checked) {
+    lang = langBtnRu.value;
+    titleLang.textContent = 'Язык';
+    titleImg.textContent = 'Источник фонового изображения';
+    titleBlocks.textContent = 'Показать / скрыть блок';
+    lableTime.textContent = 'Время';
+    lableDate.textContent = 'Дата';
+    lableGreeting.textContent = 'Приветствие';
+    lableQuote.textContent = 'Цитата';
+    lableWeather.textContent = 'Погода';
+    lableAudio.textContent = 'Аудиоплеер';
+  };
   return lang;
 }
 export const toggleLang = () => {
