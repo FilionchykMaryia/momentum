@@ -18,10 +18,12 @@ const showTime = (lang) => {
   showGreeting(lang);
   setTimeout(showTime, 1000);
 }
+
 export const showDate = (locale = 'en-GB') => {
   const newDate = new Date();
   const options = {weekday: 'long', month: 'long', day: 'numeric', timeZone: 'UTC'};
   const currentDate = newDate.toLocaleDateString(`${locale}`, options);
   date.textContent = currentDate; 
 }
+
 showTime(lang);
