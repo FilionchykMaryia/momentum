@@ -7,6 +7,7 @@ import './modules/quotes';
 import './modules/audio';
 import './modules/language';
 import './modules/settings';
+import './modules/my-links';
 
 console.log(`
 Выполнено полностью:

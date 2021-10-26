@@ -15,6 +15,9 @@ let lableQuote = document.querySelector('.quote-label');
 let lableWeather = document.querySelector('.weather-label');
 let lableAudio = document.querySelector('.audio-label');
 
+const linkTitle = document.querySelector('#new-link__title');
+const linkSrc = document.querySelector('#new-link__src');
+
 let lang;
 export const getLangLocalStorage = () => {
   if(localStorage.getItem('lang')) lang = localStorage.getItem('lang');
@@ -39,6 +42,8 @@ export const checkLang = () => {
     lableQuote.textContent = 'Quote';
     lableWeather.textContent = 'Weather';
     lableAudio.textContent = 'Audio';
+    linkTitle.placeholder = '[Title]';
+    linkSrc.placeholder = '[Source]';
   }
   if(langBtnRu.checked) {
     lang = langBtnRu.value;
@@ -51,6 +56,8 @@ export const checkLang = () => {
     lableQuote.textContent = 'Цитата';
     lableWeather.textContent = 'Погода';
     lableAudio.textContent = 'Аудиоплеер';
+    linkTitle.placeholder = '[Название]';
+    linkSrc.placeholder = '[Ресурс]';
   };
   return lang;
 }
